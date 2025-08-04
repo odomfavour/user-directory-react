@@ -57,7 +57,7 @@ const UserDirectory = () => {
   } = useQuery<RandomUser[]>({
     queryKey: ['users', currentPage, usersPerPage],
     queryFn: () => fetchUsers({ page: currentPage, limit: usersPerPage }),
-    keepPreviousData: true,
+    placeholderData: [],
   });
 
   const filteredUsers: RandomUser[] = (users as RandomUser[]).filter((user) => {
