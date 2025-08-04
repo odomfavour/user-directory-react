@@ -2,10 +2,19 @@ import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
 
 type User = {
+  name: { title: string; first: string; last: string };
   email: string;
-  name: { first: string; last: string };
-  picture: { large: string };
-  location: { city: string; country: string };
+  phone: string;
+  picture: { large: string; thumbnail: string };
+  location: {
+    street: { number: number; name: string };
+    city: string;
+    state: string;
+    country: string;
+    postcode: string | number;
+  };
+  dob: { age: number };
+  login: { uuid: string };
 };
 
 type Props = {

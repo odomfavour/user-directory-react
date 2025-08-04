@@ -21,9 +21,25 @@ const fetchUsers = async ({ page, limit }: { page: number; limit: number }) => {
   return data.results;
 };
 
+type RandomUser = {
+  name: { title: string; first: string; last: string };
+  email: string;
+  phone: string;
+  picture: { large: string; thumbnail: string };
+  location: {
+    street: { number: number; name: string };
+    city: string;
+    state: string;
+    country: string;
+    postcode: string | number;
+  };
+  dob: { age: number };
+  login: { uuid: string };
+};
+
 const UserDirectory = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUser, setSelectedUser] = useState<RandomUser | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(9);
@@ -33,23 +49,23 @@ const UserDirectory = () => {
   const totalPages = Math.ceil(FAKE_TOTAL_USERS / usersPerPage);
 
   const {
-    data: users,
+    data: users = [],
     isLoading,
     isError,
     error,
     refetch,
-  } = useQuery({
+  } = useQuery<RandomUser[]>({
     queryKey: ['users', currentPage, usersPerPage],
     queryFn: () => fetchUsers({ page: currentPage, limit: usersPerPage }),
     keepPreviousData: true,
   });
 
-  const filteredUsers = (users || []).filter((user) => {
+  const filteredUsers: RandomUser[] = (users as RandomUser[]).filter((user) => {
     const fullName = `${user.name.first} ${user.name.last}`.toLowerCase();
     return fullName.includes(searchTerm.toLowerCase());
   });
 
-  const openModal = (user: any) => setSelectedUser(user);
+  const openModal = (user: RandomUser) => setSelectedUser(user);
   const closeModal = () => setSelectedUser(null);
 
   const handlePageChange = (page: number) => {

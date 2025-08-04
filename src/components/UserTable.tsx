@@ -1,18 +1,19 @@
 import React from 'react';
 
 type User = {
-  name: {
-    first: string;
-    last: string;
-  };
+  name: { title: string; first: string; last: string };
   email: string;
-  picture: {
-    thumbnail: string;
-  };
+  phone: string;
+  picture: { large: string; thumbnail: string };
   location: {
+    street: { number: number; name: string };
     city: string;
+    state: string;
     country: string;
+    postcode: string | number;
   };
+  dob: { age: number };
+  login: { uuid: string };
 };
 
 type UserTableProps = {
