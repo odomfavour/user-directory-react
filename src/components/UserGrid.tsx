@@ -23,7 +23,7 @@ const UserGrid: React.FC<Props> = ({ filteredUsers, openModal }) => {
           className="bg-white rounded-xl shadow-md hover:shadow-xl transition cursor-pointer"
         >
           <div className="p-6">
-            <div className="flex items-center space-x-4 mb-4">
+            <div className="flex md:flex-row flex-col md:items-center items-start space-x-4 mb-4">
               <img
                 src={user.picture.large}
                 alt={user.name.first}
@@ -33,7 +33,7 @@ const UserGrid: React.FC<Props> = ({ filteredUsers, openModal }) => {
                 <h3 className="text-lg font-semibold text-gray-900">
                   {user.name.first} {user.name.last}
                 </h3>
-                <div className="flex items-center text-gray-500 text-sm mt-1">
+                <div className="flex items-center text-gray-500 text-sm mt-1 text-wrap">
                   <Mail className="h-4 w-4 mr-1" />
                   {user.email}
                 </div>

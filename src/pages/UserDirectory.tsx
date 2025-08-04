@@ -75,7 +75,7 @@ const UserDirectory = () => {
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex justify-between mb-5 items-center">
+        <div className="flex md:flex-row flex-col-reverse gap-4 justify-between mb-5 items-center">
           <p className="text-gray-600">
             {filteredUsers.length === 0
               ? 'No users found'
