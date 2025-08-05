@@ -30,7 +30,7 @@ const Pagination: React.FC<PaginationProps> = ({
             setUsersPerPage(Number(e.target.value));
             setCurrentPage(1);
           }}
-          className="border border-gray-300 rounded px-2 py-1 text-sm"
+          className="border border-gray-300 rounded px-2 py-1 text-sm bg-white"
         >
           {[6, 9, 12, 15, 20].map((value) => (
             <option key={value} value={value}>
@@ -45,7 +45,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             key={page}
             onClick={() => handlePageChange(page)}
-            className={`px-4 py-2 rounded text-sm ${
+            className={`px-4 py-2 rounded text-sm cursor-pointer ${
               currentPage === page
                 ? 'bg-indigo-600 text-white'
                 : 'bg-white border text-gray-700 hover:bg-gray-100'
