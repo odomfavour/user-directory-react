@@ -1,14 +1,14 @@
 import { X } from 'lucide-react';
 import type { MouseEvent } from 'react';
 
-type ModalProps = {
+interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
-};
+}
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
   if (!isOpen) return null;
 
   const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         <div>{children}</div>
         <button
           onClick={onClose}
-          className="mt-6 w-full cursor-pointer bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700"
+          className="mt-6 w-full cursor-pointer bg-primary text-white py-3 rounded-lg hover:bg-indigo-700"
         >
           Close
         </button>

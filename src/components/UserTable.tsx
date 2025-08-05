@@ -1,31 +1,15 @@
-import React from 'react';
+import type { Person } from '../types/Person';
 
-type User = {
-  name: { title: string; first: string; last: string };
-  email: string;
-  phone: string;
-  picture: { large: string; thumbnail: string };
-  location: {
-    street: { number: number; name: string };
-    city: string;
-    state: string;
-    country: string;
-    postcode: string | number;
-  };
-  dob: { age: number };
-  login: { uuid: string };
-};
+interface UserTableProps {
+  users: Person[];
+  onRowClick: (user: Person) => void;
+}
 
-type UserTableProps = {
-  users: User[];
-  onRowClick: (user: User) => void;
-};
-
-const UserTable: React.FC<UserTableProps> = ({ users, onRowClick }) => {
+const UserTable = ({ users, onRowClick }: UserTableProps) => {
   return (
     <div className="overflow-x-auto mb-8">
       <table className="min-w-full bg-white border rounded-lg overflow-hidden text-sm">
-        <thead className=" text-gray-700 bg-[#e8e9fa]">
+        <thead className=" text-gray-700 bg-white">
           <tr>
             <th className="text-left p-4">Photo</th>
             <th className="text-left p-4">Name</th>

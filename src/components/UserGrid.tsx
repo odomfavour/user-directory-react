@@ -1,28 +1,12 @@
-import React from 'react';
 import { Mail, MapPin } from 'lucide-react';
+import type { Person } from '../types/Person';
 
-type User = {
-  name: { title: string; first: string; last: string };
-  email: string;
-  phone: string;
-  picture: { large: string; thumbnail: string };
-  location: {
-    street: { number: number; name: string };
-    city: string;
-    state: string;
-    country: string;
-    postcode: string | number;
-  };
-  dob: { age: number };
-  login: { uuid: string };
-};
+interface GridViewProps {
+  filteredUsers: Person[];
+  openModal: (user: Person) => void;
+}
 
-type Props = {
-  filteredUsers: User[];
-  openModal: (user: User) => void;
-};
-
-const UserGrid: React.FC<Props> = ({ filteredUsers, openModal }) => {
+const UserGrid = ({ filteredUsers, openModal }: GridViewProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       {filteredUsers.map((user, index) => (

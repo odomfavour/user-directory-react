@@ -3,7 +3,7 @@ interface ErrorViewProps {
   onRetry: () => void;
 }
 
-const ErrorView: React.FC<ErrorViewProps> = ({ message, onRetry }) => {
+const ErrorView = ({ message, onRetry }: ErrorViewProps) => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">

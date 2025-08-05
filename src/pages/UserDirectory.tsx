@@ -9,6 +9,7 @@ import UserTable from '../components/UserTable';
 import Pagination from '../components/Pagination';
 import Modal from '../components/Modal';
 import UserDetails from '../components/UserDetails';
+import type { Person } from '../types/User';
 
 const FAKE_TOTAL_USERS = 45;
 
@@ -21,25 +22,9 @@ const fetchUsers = async ({ page, limit }: { page: number; limit: number }) => {
   return data.results;
 };
 
-type RandomUser = {
-  name: { title: string; first: string; last: string };
-  email: string;
-  phone: string;
-  picture: { large: string; thumbnail: string };
-  location: {
-    street: { number: number; name: string };
-    city: string;
-    state: string;
-    country: string;
-    postcode: string | number;
-  };
-  dob: { age: number };
-  login: { uuid: string };
-};
-
 const UserDirectory = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedUser, setSelectedUser] = useState<RandomUser | null>(null);
+  const [selectedUser, setSelectedUser] = useState<Person | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(9);
@@ -54,24 +39,22 @@ const UserDirectory = () => {
     isError,
     error,
     refetch,
-  } = useQuery<RandomUser[]>({
+  } = useQuery<Person[]>({
     queryKey: ['users', currentPage, usersPerPage],
     queryFn: () => fetchUsers({ page: currentPage, limit: usersPerPage }),
   });
 
-  const filteredUsers: RandomUser[] = (users as RandomUser[]).filter((user) => {
+  const filteredUsers: Person[] = (users as Person[]).filter((user) => {
     const fullName = `${user.name.first} ${user.name.last}`.toLowerCase();
     return fullName.includes(searchTerm.toLowerCase());
   });
 
-  const openModal = (user: RandomUser) => setSelectedUser(user);
+  const openModal = (user: Person) => setSelectedUser(user);
   const closeModal = () => setSelectedUser(null);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-
-  console.log({ isLoading, users });
 
   if (isLoading) {
     return <Loader />;
@@ -87,7 +70,7 @@ const UserDirectory = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-secondary">
       <Header viewMode={viewMode} setViewMode={setViewMode} />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex md:flex-row flex-col-reverse gap-4 justify-between mb-5 items-center">

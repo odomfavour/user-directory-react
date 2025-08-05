@@ -1,11 +1,11 @@
 import { LayoutGrid, List } from 'lucide-react';
 
-interface DirectoryHeaderProps {
+interface HeaderProps {
   viewMode: 'grid' | 'table';
   setViewMode: (mode: 'grid' | 'table') => void;
 }
 
-const Header: React.FC<DirectoryHeaderProps> = ({ viewMode, setViewMode }) => {
+const Header = ({ viewMode, setViewMode }: HeaderProps) => {
   return (
     <div className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-6">

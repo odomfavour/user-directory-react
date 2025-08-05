@@ -1,20 +1,8 @@
 import { Mail, MapPin, User } from 'lucide-react';
+import type { Person } from '../types/Person';
 
 interface UserDetailsCardProps {
-  selectedUser: {
-    picture: { large: string };
-    name: { title: string; first: string; last: string };
-    email: string;
-    phone: string;
-    dob: { age: number };
-    location: {
-      street: { number: number; name: string };
-      city: string;
-      state: string;
-      country: string;
-      postcode: string | number;
-    };
-  };
+  selectedUser: Person;
 }
 
 const UserDetails = ({ selectedUser }: UserDetailsCardProps) => {
