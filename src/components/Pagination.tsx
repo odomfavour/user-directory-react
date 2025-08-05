@@ -19,7 +19,6 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   return (
     <div className="flex justify-between mt-6 items-center flex-wrap gap-4">
-      {/* Per Page Selector */}
       <div className="flex items-center gap-2">
         <label htmlFor="perPage" className="text-sm text-gray-700">
           Users per page:
@@ -41,7 +40,6 @@ const Pagination: React.FC<PaginationProps> = ({
         </select>
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center gap-2 flex-wrap">
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <button

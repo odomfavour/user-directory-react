@@ -88,8 +88,6 @@ const UserDirectory = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Header viewMode={viewMode} setViewMode={setViewMode} />
-
-      {/* Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex md:flex-row flex-col-reverse gap-4 justify-between mb-5 items-center">
           <p className="text-gray-600">
@@ -123,7 +121,6 @@ const UserDirectory = () => {
           <UserTable users={filteredUsers} onRowClick={openModal} />
         )}
 
-        {/* Pagination Controls */}
         <Pagination
           usersPerPage={usersPerPage}
           setUsersPerPage={setUsersPerPage}
@@ -134,7 +131,6 @@ const UserDirectory = () => {
         />
       </div>
 
-      {/* Modal */}
       {selectedUser && (
         <Modal
           isOpen={!!selectedUser}
