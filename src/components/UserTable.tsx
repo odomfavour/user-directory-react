@@ -25,7 +25,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, onRowClick }) => {
   return (
     <div className="overflow-x-auto mb-8">
       <table className="min-w-full bg-white border rounded-lg overflow-hidden text-sm">
-        <thead className=" text-gray-700 bg-[#f9fafb]">
+        <thead className=" text-gray-700 bg-[#e8e9fa]">
           <tr>
             <th className="text-left p-4">Photo</th>
             <th className="text-left p-4">Name</th>

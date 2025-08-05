@@ -7,7 +7,7 @@ interface DirectoryHeaderProps {
 
 const Header: React.FC<DirectoryHeaderProps> = ({ viewMode, setViewMode }) => {
   return (
-    <div className="bg-white shadow-sm border-b">
+    <div className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div>
