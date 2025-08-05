@@ -25,7 +25,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, onRowClick }) => {
   return (
     <div className="overflow-x-auto mb-8">
       <table className="min-w-full bg-white border rounded-lg overflow-hidden text-sm">
-        <thead className=" text-gray-700">
+        <thead className=" text-gray-700 bg-[#f9fafb]">
           <tr>
             <th className="text-left p-4">Photo</th>
             <th className="text-left p-4">Name</th>
@@ -38,7 +38,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, onRowClick }) => {
             <tr
               key={`${user.email}-${index}`}
               onClick={() => onRowClick(user)}
-              className="border-t hover:bg-indigo-50 cursor-pointer"
+              className="border-t border-[#eaecf0] hover:bg-indigo-50 cursor-pointer"
             >
               <td className="px-4 py-2">
                 <img
