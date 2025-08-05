@@ -57,7 +57,6 @@ const UserDirectory = () => {
   } = useQuery<RandomUser[]>({
     queryKey: ['users', currentPage, usersPerPage],
     queryFn: () => fetchUsers({ page: currentPage, limit: usersPerPage }),
-    placeholderData: [],
   });
 
   const filteredUsers: RandomUser[] = (users as RandomUser[]).filter((user) => {
@@ -71,6 +70,8 @@ const UserDirectory = () => {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
+
+  console.log({ isLoading, users });
 
   if (isLoading) {
     return <Loader />;
