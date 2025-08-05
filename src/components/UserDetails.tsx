@@ -23,7 +23,7 @@ const UserDetails = ({ selectedUser }: UserDetailsCardProps) => {
       <div className="text-center mb-6">
         <img
           src={selectedUser.picture.large}
-          className="h-32 w-32 rounded-full mx-auto border-4 border-indigo-100 mb-4"
+          className="h-24 w-24 rounded-full mx-auto border-4 border-indigo-100 mb-4"
           alt={`${selectedUser.name.first} ${selectedUser.name.last}`}
         />
         <h3 className="text-xl font-semibold">
