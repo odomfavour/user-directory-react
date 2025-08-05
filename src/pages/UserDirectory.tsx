@@ -9,7 +9,7 @@ import UserTable from '../components/UserTable';
 import Pagination from '../components/Pagination';
 import Modal from '../components/Modal';
 import UserDetails from '../components/UserDetails';
-import type { Person } from '../types/User';
+import type { Person } from '../types/Person';
 
 const FAKE_TOTAL_USERS = 45;
 
