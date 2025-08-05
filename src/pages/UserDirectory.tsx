@@ -11,7 +11,7 @@ import Modal from '../components/Modal';
 import UserDetails from '../components/UserDetails';
 import type { Person } from '../types/Person';
 
-const FAKE_TOTAL_USERS = 45;
+const TOTAL_USERS = 45;
 
 const fetchUsers = async ({ page, limit }: { page: number; limit: number }) => {
   const res = await fetch(
@@ -30,8 +30,8 @@ const UserDirectory = () => {
   const [usersPerPage, setUsersPerPage] = useState(9);
 
   const start = (currentPage - 1) * usersPerPage + 1;
-  const end = Math.min(currentPage * usersPerPage, FAKE_TOTAL_USERS);
-  const totalPages = Math.ceil(FAKE_TOTAL_USERS / usersPerPage);
+  const end = Math.min(currentPage * usersPerPage, TOTAL_USERS);
+  const totalPages = Math.ceil(TOTAL_USERS / usersPerPage);
 
   const {
     data: users = [],
@@ -77,7 +77,7 @@ const UserDirectory = () => {
           <p className="text-gray-600">
             {filteredUsers.length === 0
               ? 'No users found'
-              : `Showing ${start}–${end} of ${FAKE_TOTAL_USERS} users`}
+              : `Showing ${start}–${end} of ${TOTAL_USERS} users`}
           </p>
 
           <div className="flex gap-4 items-center">
